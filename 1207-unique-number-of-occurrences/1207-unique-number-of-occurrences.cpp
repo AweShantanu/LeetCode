@@ -21,7 +21,7 @@ public:
             }
                 
         }
-        sort(ans.begin(),ans.end(),greater<int>());
+        sort(ans.begin(),ans.end());
         for(int j=0;j<ans.size()-1;j++)
         {
             if(ans[j]==ans[j+1])
