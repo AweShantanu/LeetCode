@@ -6,7 +6,7 @@
 //         char ch;
 //         if(strs.size() == 0 || strs[0] == "") return s;
 //         if(strs.size() == 1) return strs[0];
-//         for(int i=0; i<=l;i++)
+//         for(int i=0; i<l;i++)
 //        {
 //             ch=strs[0][i];
 //             if(strs[1][i]== ch && strs[2][i]==  ch)
