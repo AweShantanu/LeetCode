@@ -25,9 +25,10 @@ public:
         long long res=kSum*vec[k-1].second;
         for(int i=k;i<n;i++)
         {
-            kSum+=vec[i].first-pq.top();
-            pq.pop();
+            kSum+=vec[i].first;
             pq.push(vec[i].first);
+            kSum=kSum-pq.top();
+            pq.pop();
             res=max(res,kSum*vec[i].second);
         }
         
