@@ -25,18 +25,18 @@ public:
     vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
         sort(nums.begin(),nums.end());
         int n=nums.size();
-        vector<int> cumSum;
+    
         int m=queries.size();
         int sum=0;
         for(int i=0;i<n;i++)
         {
             sum=sum+nums[i];
-            cumSum.push_back(sum);
+            nums[i]=sum;
             
         }
         for(int i=0;i<m;i++)
         {
-            int k= binarySearch(cumSum,queries[i],n);
+            int k= binarySearch(nums,queries[i],n);
             ans.push_back(k);
         }
         return ans;
