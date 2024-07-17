@@ -1,28 +1,33 @@
+#include <vector>
+#include <queue>
+
 class Solution {
 public:
-    int minStoneSum(vector<int>& piles, int k) {
-        int n=piles.size();
-        priority_queue<int> pq;
-        for(int i=0;i<n;i++)
-        {
+    int minStoneSum(std::vector<int>& piles, int k) {
+        int n = piles.size();
+        std::priority_queue<int> pq;
+        
+        // Push all piles into the max heap
+        for (int i = 0; i < n; i++) {
             pq.push(piles[i]);
         }
-        int sum =0;
-        while(k>0)
-        {
-            int a=pq.top();
+        
+        // Perform the operation k times
+        while (k > 0) {
+            int a = pq.top();
             pq.pop();
-            a=a-a/2;
+            a = a - a / 2; // Reduce the pile by half (integer division rounds down)
             pq.push(a);
             k--;
         }
-        while(pq.size()!=0)
-        {
-            sum=sum+pq.top();
-            pq.pop();
-            
-        }
-        return sum;
         
+        // Sum up the remaining stones
+        int sum = 0;
+        while (!pq.empty()) {
+            sum += pq.top();
+            pq.pop();
+        }
+        
+        return sum;
     }
 };
